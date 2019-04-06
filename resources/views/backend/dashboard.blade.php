@@ -56,7 +56,7 @@
                     Ace
                     <small>(v1.4)</small>
                 </strong>,
-<a href="https://github.com/bopoda/ace">github</a> (with minified ace js/css files).
+<a href="https://github.com/bopoda/ace">github</a> (with minified ace js/css files). Laravel version {{app()->version()}}
             </div>
 
             <div class="row">
