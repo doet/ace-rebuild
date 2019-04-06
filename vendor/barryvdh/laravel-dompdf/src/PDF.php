@@ -169,7 +169,8 @@ class PDF{
         $output = $this->output();
         return new Response($output, 200, array(
                 'Content-Type' => 'application/pdf',
-                'Content-Disposition' =>  'attachment; filename="'.$filename.'"'
+                'Content-Disposition' =>  'attachment; filename="'.$filename.'"',
+                'Content-Length' => strlen($output),
             ));
     }
 
@@ -201,7 +202,7 @@ class PDF{
 
         if ( $this->showWarnings ) {
             global $_dompdf_warnings;
-            if(count($_dompdf_warnings)){
+            if(!empty($_dompdf_warnings) && count($_dompdf_warnings)){
                 $warnings = '';
                 foreach ($_dompdf_warnings as $msg){
                     $warnings .= $msg . "\n";
@@ -215,7 +216,16 @@ class PDF{
         $this->rendered = true;
     }
 
-
+    
+    public function setEncryption($password) {
+       if (!$this->dompdf) {
+           throw new Exception("DOMPDF not created yet");
+       }
+       $this->render();
+       return $this->dompdf->getCanvas()->get_cpdf()->setEncryption("pass", $password);
+    }
+    
+    
     protected function convertEntities($subject){
         $entities = array(
             '€' => '&#0128;',
