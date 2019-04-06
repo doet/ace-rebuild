@@ -21,6 +21,8 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## langkah instalasi
+
 1. buat file .env
 2. set pengaturan database
 3. $php artisan make:auth
@@ -34,24 +36,24 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 5. composer require box/spout
 6. composer require barryvdh/laravel-dompdf
-    set file /config/app.php
+    * set file /config/app.php
     - Barryvdh\DomPDF\ServiceProvider::class,
     - 'PDF' => Barryvdh\DomPDF\Facade::class,
 7. copy file /public/.htaccess ke root folder
 8. ubah nama file server.php pada root folder menjadi index.php
 9. edit file /Illuminate/Routing/UrlGenerator.php
-    public function asset($path, $secure = null)
-    {
-        ......
-        return $this->removeIndex($root).'/'.trim($path, '/');
-    }
-    menjadi
-    public function asset($path, $secure = null)
-    {
-        ......
-        return $this->removeIndex($root).'/public/'.trim($path, '/');
-    }
+    # public function asset($path, $secure = null)
+    # {
+    #     ......
+    #     return $this->removeIndex($root).'/'.trim($path, '/');
+    # }
+    # menjadi
+    # public function asset($path, $secure = null)
+    # {
+    #     ......
+    #     return $this->removeIndex($root).'/public/'.trim($path, '/');
+    # }
 
 copy isi file
-  /routes/api.php
-  /routes/web.php
+  - /routes/api.php
+  - /routes/web.php
