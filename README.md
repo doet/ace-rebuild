@@ -42,18 +42,20 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 7. copy file /public/.htaccess ke root folder
 8. ubah nama file server.php pada root folder menjadi index.php
 9. edit file /Illuminate/Routing/UrlGenerator.php
-    # public function asset($path, $secure = null)
-    # {
-    #     ......
-    #     return $this->removeIndex($root).'/'.trim($path, '/');
-    # }
-    # menjadi
-    # public function asset($path, $secure = null)
-    # {
-    #     ......
-    #     return $this->removeIndex($root).'/public/'.trim($path, '/');
-    # }
+  <!-- public function asset($path, $secure = null)
+  {
+     ......
+     return $this->removeIndex($root).'/'.trim($path, '/');
+  }
+  - menjadi
+  public function asset($path, $secure = null)
+  {
+     ......
+     return $this->removeIndex($root).'/public/'.trim($path, '/');
+  } -->
 
 copy isi file
   - /routes/api.php
   - /routes/web.php
+
+* ikuti langkah https://commit-cyber.com/stories/powerful-real-time-web-applications-dengan-laravel-react-socketio-redis-vyMhpihbQW
